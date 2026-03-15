@@ -1,5 +1,3 @@
-// content.js - Sumo Hide Spoilers - Fishpie - 13/03/2026
-
 (function () {
     'use strict';
 
