@@ -58,26 +58,45 @@
 
             // Adjust perform cells (single or multi-number formats) on new line
             function adjustPerformCells() {
-                document.querySelectorAll('.perform').forEach(cell => {
-                    if (!cell || !cell.textContent) return;
+        document.querySelectorAll('.perform').forEach(cell => {
 
-                    // Only adjust if cell is highlighted as a win (ancestor win colour OR still has win class)
-                    const parentResult = cell.closest('.result');
-                    const haswinClass = parentResult && parentResult.classList.contains('win');
-                    const haswinColour = elementOrAncestorHaswinColour(cell);
+        const row = cell.closest('tr');
+        if (!row) return;
 
-                    if (!haswinClass && !haswinColour) return;
+        const performCells = row.querySelectorAll('.perform');
+        if (performCells.length < 2) return;
 
-                    const text = cell.textContent.trim();
-                    const match = text.match(/[（(]([\d\-]+)[）)]/);
-                    if (match) {
-                        const numbers = match[1].split('-').map(n => parseInt(n, 10));
-                        if (numbers.length > 0 && !isNaN(numbers[0]) && numbers[0] > 0) numbers[0] -= 1;
-                        const newRecord = `（${numbers.join('-')}）`;
-                        cell.innerHTML = `<div>${newRecord}</div>`;
-                    }
-                });
+        const winnerCell = cell;
+        const loserCell = [...performCells].find(c => c !== winnerCell);
+
+        const parentResult = winnerCell.closest('.result');
+        const hasWinClass = parentResult && parentResult.classList.contains('win');
+        const hasWinColour = elementOrAncestorHaswinColour(winnerCell);
+
+        if (!hasWinClass && !hasWinColour) return;
+
+        function adjust(cell, indexToChange) {
+            const text = cell.textContent.trim();
+            const match = text.match(/[（(]([\d\-]+)[）)]/);
+            if (!match) return;
+
+            const nums = match[1].split('-').map(n => parseInt(n, 10));
+
+            if (!isNaN(nums[indexToChange]) && nums[indexToChange] > 0) {
+                nums[indexToChange] -= 1;
             }
+
+            const newRecord = `（${nums.join('-')}）`;
+            cell.innerHTML = `<div>${newRecord}</div>`;
+        }
+
+        // winner: decrement wins
+        adjust(winnerCell, 0);
+
+        // loser: decrement losses
+        adjust(loserCell, 1);
+    });
+}
 
             // Normalize background colours
             function normaliseBackgroundColours() {
