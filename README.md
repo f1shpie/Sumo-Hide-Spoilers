@@ -1,5 +1,4 @@
-<p align="center"><a rel="noreferrer noopener" href="https://chromewebstore.google.com/detail/sumo-hide-spoilers/gfjgoidcmndifdocjopoefdbocgnhpaj"><img alt="Chrome Web Store" src="https://img.shields.io/chrome-web-store/v/gfjgoidcmndifdocjopoefdbocgnhpaj?style=for-the-badge&logo=google-chrome&logoColor=white&color=46548b
-"></a> <a rel="noreferrer noopener" href="https://github.com/f1shpie/Sumo-Hide-Spoilers/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/f1shpie/Sumo-Hide-Spoilers?&style=for-the-badge&logo=github&logoColor=white&color=46548b"></a>  
+<p align="center"><a rel="noreferrer noopener" href="https://chromewebstore.google.com/detail/sumo-hide-spoilers/gfjgoidcmndifdocjopoefdbocgnhpaj"><img alt="Chrome Web Store" src="https://img.shields.io/chrome-web-store/v/gfjgoidcmndifdocjopoefdbocgnhpaj?style=for-the-badge&logo=google-chrome&logoColor=white&color=46548b"></a> <a rel="noreferrer noopener" href="https://github.com/f1shpie/Sumo-Hide-Spoilers/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/f1shpie/Sumo-Hide-Spoilers?&style=for-the-badge&logo=github&logoColor=white&color=46548b"></a>  
 <h1 align="center">Sumo - Hide Basho Spoilers</h1>
   
 <p align="center">Hides match results to prevent spoilers on sumo.or.jp. Toggle via extension popup. 
