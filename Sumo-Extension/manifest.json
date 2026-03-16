@@ -13,7 +13,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.sumo.or.jp/*", "https://sumo.or.jp/*"],
+      "matches": ["https://www.sumo.or.jp/EnHonbashoMain/*", "https://sumo.or.jp/EnHonbashoMain/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
