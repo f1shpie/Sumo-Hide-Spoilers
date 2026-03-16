@@ -138,8 +138,8 @@ const hidePanel = shadow.getElementById('hidePanel');
 
 hidePanel.addEventListener('click', () => {
 
-document.getElementById('sumoSpoilerPanelHost').remove();
-injectRestoreButton();
+    document.getElementById('sumoSpoilerPanelHost').remove();
+    chrome.storage.sync.set({ panelVisible: false }, () => injectRestoreButton());
 
 });
 
@@ -198,8 +198,8 @@ btn.style.boxShadow = '0 3px 10px rgba(0,0,0,0.25)';
 
 btn.onclick = () => {
 
-btn.remove();
-injectPanel();
+    btn.remove();
+    chrome.storage.sync.set({ panelVisible: true }, () => injectPanel());
 
 };
 
@@ -209,9 +209,15 @@ document.body.appendChild(btn);
 
         // ---------- MAIN LOGIC ----------
 
-        chrome.storage.sync.get(['hideSpoilers'], (result) => {
+        chrome.storage.sync.get(['hideSpoilers', 'panelVisible'], (result) => {
 
-            injectPanel();
+            const panelVisible = typeof result.panelVisible === 'undefined' ? true : result.panelVisible;
+
+            if (panelVisible) {
+                injectPanel();
+            } else {
+                injectRestoreButton();
+            }
 
             if (!result.hideSpoilers) return;
 
