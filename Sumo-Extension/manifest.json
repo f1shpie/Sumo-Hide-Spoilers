@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Sumo - Hide Basho Spoilers",
-  "version": "1.5",
-  "description": "Hides match results to prevent spoilers on sumo.or.jp. Toggle via extension popup.",
+  "version": "1.6",
+  "description": "Hides match results to prevent spoilers on sumo.or.jp. Toggle via button on website, or extension popup.",
   "permissions": ["storage"],
   "icons": {
     "128": "logo.png"
